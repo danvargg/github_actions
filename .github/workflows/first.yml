@@ -10,33 +10,33 @@ on:
       - main
 
 jobs:
-  job1:
+  ubuntu:
     name: First job
     runs-on: ubuntu-latest
     steps:
       - name: Step one
         uses: actions/checkout@v2
       - name: Step two
-        run: date "+%H:%M:%S   %d/%m/%y"
+        run: date
 
-  job2:
+  windows:
     name: Second job
     runs-on: windows-latest
     steps:
       - name: Step one
-        run: Write-Output "Backups complete at $(Get-Date)"
+        run: date
 
-  job3:
+  macos:
     name: Third job
     runs-on: macos-latest
     steps:
       - name: Step one
-        run: date "+%A %W %Y %X"
+        run: date
 
-  job4:
+  final:
     name: Fourth job
     runs-on: windows-latest
-    needs: [ job1, job2, job3 ]
+    needs: [ ubuntu, windows, macos ]
     steps:
       - name: Step one
-        run: Write-Output "Backups complete at $(Get-Date)"
+        run: date
