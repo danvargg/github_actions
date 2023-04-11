@@ -1,6 +1,13 @@
 name: first
 
-on: push
+on:
+  push:
+    branches:
+      - develop
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
   job1:
@@ -10,21 +17,26 @@ jobs:
       - name: Step one
         uses: actions/checkout@v2
       - name: Step two
-        run: env | sort
+        run: date "+%H:%M:%S   %d/%m/%y"
 
   job2:
     name: Second job
     runs-on: windows-latest
     steps:
       - name: Step one
-        uses: actions/checkout@v2
-      - name: Step two
-        run: "Get-ChildItem Env: | Sort-Object Name"
+        run: Write-Output "Backups complete at $(Get-Date)"
 
   job3:
     name: Third job
-    runs-on: windows-latest
-    needs: [job1, job2]
+    runs-on: macos-latest
     steps:
       - name: Step one
-        uses: actions/checkout@v2
+        run: date "+%A %W %Y %X"
+
+  job4:
+    name: Fourth job
+    runs-on: windows-latest
+    needs: [ job1, job2, job3 ]
+    steps:
+      - name: Step one
+        run: Write-Output "Backups complete at $(Get-Date)"
