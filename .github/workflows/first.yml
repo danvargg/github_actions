@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Step one
-        uses: actions/checkout@v2
+        uses: actions/checkout@v2  # read about this
       - name: Step two
         run: date
 
