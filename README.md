@@ -6,7 +6,7 @@ In this lesson, arguments are passed to the following actions:
 - [actions/setup-java](https://github.com/actions/setup-java)
 
 ```
-name: Build Tomcattt
+name: Build Tomcat
 
 on: [push]
 
