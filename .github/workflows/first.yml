@@ -33,10 +33,10 @@ jobs:
       - name: Step one
         run: date
 
-  final:
-    name: Fourth job
-    runs-on: windows-latest
-    needs: [ ubuntu, windows, macos ]
-    steps:
-      - name: Step one
-        run: date
+#  final:
+#    name: Fourth job
+#    runs-on: windows-latest
+#    needs: [ ubuntu, windows, macos ]
+#    steps:
+#      - name: Step one
+#        run: date
